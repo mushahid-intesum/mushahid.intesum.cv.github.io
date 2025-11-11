@@ -1,0 +1,246 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=5]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Mushahid Intesum} \\[7.5pt]
+\href{https://github.com/mushahid-intesum}{\raisebox{-0.05\height}\faGithub\ Github} \ $|$ \ 
+\href{https://www.linkedin.com/in/mushahid-intesum-2746921b6/}{\raisebox{-0.05\height}\faLinkedin\ LinkedIn} \ $|$ \ 
+\href{https://mushahid-intesum.github.io}{\raisebox{-0.05\height}\faGlobe \ Personal Website} \ $|$ \ 
+% \href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
+\href{https://dev.to/skondho_kata}{\raisebox{-0.05\height}\faGlobe \ Blog} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+I am deeply interested in Efficient Deep Learning with the goal of making training, inference and deployment of deep learning model efficient and increasing the capability of these models on resource constrained platforms.
+  
+%Projects
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+
+2019 – 2023 & \textbf{University of Dhaka}, BSc in Computer Science and Engineering \hfill (GPA: 3.46/4.0) \\ 
+
+2018 & \textbf{Notre Dame College}, HSC \hfill  (GPA: 5.00/5.00) \\
+
+2016 & \textbf{Dhaka Residential Model College}, SSC \hfill  (GPA: 5.00/5.00) \\
+\end{tabularx}
+
+\section{Publications}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Speech Synthesizer for Bangla} & \hfill \href{https://github.com/mushahid-intesum/STFT-GradTTS}{Link} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Funded by the University Grants Commission, we are working on building a novel Speech Synthesizer made specifically for Bangla. Our project aims to tackle the data scarcity problem of Bangla by preparing a large, 20-hour-long, single-speaker audio dataset that is collected in a studio quality environment.
+
+We also proposed STFT-GradTTS, a novel diffusion based TTS model with multi-stream iSTFT decoders and Stochastic Duration Predictor. The paper is under review.}  \\ \\
+
+\textbf{Llava Efficiency Experiments} & \hfill \href{https://github.com/mushahid-intesum/Llava-Efficiency-Experiments}{Link} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{An independent research project where I attemtpted to investigate post-training pruning of attention tokens in the vision-tower and cross-modal fusion towers of Llava 7B model to find possible opportunities for post training optimization. The code was tested on 2x T4 GPU option of Kaggle.}  \\ \\
+
+\textbf{Bird Call Identifier Using ESP32} & \hfill \href{https://github.com/mushahid-intesum/esp32-projects}{Link} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{A bird call identifier deployed on ESP32 MCU with on-device inference. Using the BirdClef dataset, the model was trained, quantized and deployed on the ESP32. Utilized hierarchical labels and class balanced sampling}  \\
+\end{tabularx}
+
+\section{Talks and Workshops}
+\textbf{From Prompt to Product: A Workshop on the Working Principles of Large Language Models} \\[3.75pt]
+A workshop on the working principles of modern LLMs held at the University of Dhaka, organized by IEEE SBC DU Branch. In it, we talked at length how LLMs work, from explaining about transformers to the process of pre-training and finetuning. We also had a hands-on session where participants were able to implement these same ideas into code. Slides of the workshop can be found \href{https://docs.google.com/presentation/d/1TVH3ptk0DurE2e5Aipo1rMVUq7VnfwBRflYOa3nbLRY/edit?usp=sharing}{here}. \\
+
+\textbf{STFT-GradTTS: A Robust, Diffusion-based Speech Synthesis System with iSTFT decoder for Bangla} \\[3.75pt]
+A presentation and workshop on our paper ‘STFT-GradTTS: A Robust, Diffusion-based Speech Synthesis System with iSTFT decoder for Bangla’ at the University of Dhaka. In it, we presented our data collection strategy and methodology for the paper and held an open Q\&A session. Slides of the workshop can be found \href{https://docs.google.com/presentation/d/1Az5hiV_t9hlWzQasweqGeolQpliIoU7h8dn3vf-FH9c/edit?usp=sharing}{here}. \\
+
+%Experience
+\section{Work Experience}
+
+\begin{joblong}{Software Engineer, Therap(BD) Ltd.}{March 2024 - present}
+\item Working as a Software Engineer at Therap(BD) Ltd. I work on a scalable, large scale application based on Spring, Oracle and Hibernate that serves thousands on clients.
+\end{joblong}
+
+
+\begin{joblong}{University of Dhaka, Research Assistant}{April 2023 - May 2024}
+\item Worked as a research assistant where we worked to create a Speech Synthesizer for Bangla from scratch. The project aims to address data scarcity in Bangla by collecting a large single-speaker audio dataset that spans more than 20 hours and a novel TTS system made for Bangla.
+\end{joblong}
+
+\begin{joblong}{One Data Labs, Data Engineer}{June 2023 - January 2024}
+\item Worked as a Data Engineer at One Data Labs which is based in Serbia. Key tasks included scraping raw data from sources, creating a pipeline for data collection, cleaning data and analysing the data to find interesting insights for product development
+\end{joblong}
+
+\begin{joblong}{Arbree Limited, Software Engineer Intern}{June 2021 - November 2021}
+\item Worked as a Software Engineer Intern where I worked with Django and Express.js. Worked on Ezeedrop and Arbree Attendance Solutions.
+\end{joblong}
+
+
+\section{Non-Academic Service}
+\begin{jobshort}{CSEDU Students' Club, General Secretary}{January 2023 – December 2023}
+\end{jobshort}
+
+\begin{jobshort}{CSEDU Students' Club, Secretary (Sports)}{January 2022 – December 2022}
+\end{jobshort}
+
+\begin{jobshort}{CSEDU Students' Club, Executive Member}{January 2020 – December 2021}
+\end{jobshort}
+
+\section{Miscellaneous}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programming Languages  &  \normalsize{Python, Java}\\ 
+Tools &  \normalsize{Pytorch, Tensorflow, Spring, }\\
+Languages  &  \normalsize{Bangla, English}\\  
+\end{tabularx}
+
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
